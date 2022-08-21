@@ -1,0 +1,48 @@
+{% extends "admin-base.html" %}
+{% block head %}
+{{ super() }}
+<title>Pregled svih koncerata | OSB</title>
+{% endblock %}
+
+{% block body %}
+<div id="intro-example-page" class="text-center bg-image">
+    <div class="mask-page" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Pregled svih koncerata</h1>
+                <h5 class="mb-4">Odaberite koncert koji želite urediti</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% block content %}
+        {% for d in data[::-1] %}
+
+        <div class="col">
+            <div id="konc" class="card h-auto">
+                <img src="{{d.slika}}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{d.ime_izvodaca}}</h5>
+                    <p class="card-text">{{d.opis}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{d.mjesto}}</li>
+                    <li class="list-group-item">{{d.datum}}</li>
+                    <li class="list-group-item">{{d.vrijeme}} h </li>
+                    <li class="list-group-item">{{d.cijena}} kn </li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="btn btn-outline-dark btn-lg m-2"> Uredi </a>
+                    <a href="#" class="btn btn-outline-dark btn-lg m-2"> Ukloni </a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

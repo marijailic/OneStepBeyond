@@ -1,0 +1,56 @@
+/*all*/
+.container {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+/*index*/
+
+.mask {
+    height: 100vh;
+}
+
+.mask-page {
+    height: 50vh;
+}
+
+#intro-example {
+    height: 100vh;
+    min-height: 100vh;
+    background-image: url('https://images.pexels.com/photos/2078076/pexels-photo-2078076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+}
+
+#intro-example-page {
+    height: 50vh;
+    min-height: 50vh;
+    background-image: url('https://images.pexels.com/photos/2078076/pexels-photo-2078076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+}
+
+/*admin-base*/
+
+#nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white !important;
+    z-index: 1;
+}
+
+/*admin-dodavanje-koncerta*/
+
+.col {
+    margin-top: 1.5vw;
+}
+
+#button {
+    margin-top: 1.5vw;
+}
+
+.form-control:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.6);
+    outline: 0 none;
+}
