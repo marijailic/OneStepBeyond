@@ -61,13 +61,26 @@ def brisanje_koncerta(id):
         return make_response(jsonify(response), 400)
 
 
-# !promjena podataka koncerta
+# promjena podataka koncerta
 
 
 @admin.route('/admin/promjena-podataka/<id>', methods=['POST', 'GET'])
 def promjena_podataka(id):
-    response = patch_koncert(id)
-    if response["response"] == "Uspjesna promjena!":
-        return make_response(jsonify(response), 200)
+    if request.method == "POST":
+        try:
+            json_request = {}
+            for key, value in request.form.items():
+                if value == "":
+                    json_request[key] = None
+                else:
+                    json_request[key] = value
+        except Exception as e:
+            response = {"response": str(e)}
+            return make_response(jsonify(response), 400)
+        response = patch_koncert(id, json_request)
+        if response["response"] == "Uspjesna promjena!":
+            return make_response(jsonify(response), 200)
+        else:
+            return make_response(jsonify(response), 400)
     else:
-        return make_response(jsonify(response), 400)
+        return make_response(render_template("admin-promjena-podataka.html"), 200)
