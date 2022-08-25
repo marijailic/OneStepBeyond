@@ -98,13 +98,20 @@ def delete_koncert(odabrani_koncert):
         return {"response": "Neuspjesno brisanje koncerta!", "error": str(e)}
 
 
-# !promjena podataka koncerta
+# promjena podataka koncerta
 
 
-def patch_koncert(odabrani_koncert):
+def patch_koncert(odabrani_koncert, json_request):
     try:
         with orm.db_session:
             to_update = Koncert.get(id=odabrani_koncert)
+            to_update.ime_izvodaca = json_request["ime_izvodaca"]
+            to_update.opis = json_request["opis"]
+            to_update.slika = json_request["slika"]
+            to_update.mjesto = json_request["mjesto"]
+            to_update.datum = json_request["datum"]
+            to_update.vrijeme = json_request["vrijeme"]
+            to_update.cijena = json_request["cijena"]
             response = {"response": "Uspjesna promjena!"}
             return response
     except Exception as e:
