@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% block content %}
-        {% for d in data[::-1] %}
+        {% for d in data %}
 
         <div class="col">
             <div id="konc" class="card h-auto">
@@ -31,12 +31,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{d.mjesto}}</li>
                     <li class="list-group-item">{{d.datum}}</li>
-                    <li class="list-group-item">{{d.vrijeme}} h </li>
-                    <li class="list-group-item">{{d.cijena}} kn </li>
+                    <li class="list-group-item">{{d.vrijeme}} h</li>
+                    <li class="list-group-item">{{d.cijena}} kn</li>
                 </ul>
                 <div class="card-body">
-                    <a href="/admin/brisanje-koncerta/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Kupi kartu </a>
-                    </form>
+                    <a href="/user/podaci-o-koncertu/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Pregledaj </a>
                 </div>
             </div>
         </div>
