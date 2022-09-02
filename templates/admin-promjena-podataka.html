@@ -22,11 +22,10 @@
 
     <form method="post">
 
-
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Naziv izvođača</label>
-                <input name="ime_izvodaca" value="{{request.form['ime_izvodaca']}}" type="text" class="form-control">
+                <input name="ime_izvodaca" value="{{ data[0].ime_izvodaca }}" type="text" class="form-control">
             </div>
         </div>
 
@@ -51,9 +50,9 @@
 
         <div class="row">
             <div class="col">
-                <label for="exampleFormControlTextarea1" class="form-label">Mjesto</label>
-                <input name="mjesto" value="{{request.form['mjesto']}}" type="text" class="form-control"
-                    id="inputAddress" placeholder="Arena, 52 100 Pula">
+                <label for="exampleFormControlTextarea1" class="form-label">Mjesto </label>
+                <input name="mjesto" value="{{ data[0].mjesto }}" type="text" class="form-control" id="inputAddress"
+                    placeholder="Arena, 52 100 Pula">
             </div>
         </div>
 
