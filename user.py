@@ -1,5 +1,5 @@
 from flask import request, make_response, jsonify, render_template, Blueprint
-from db_connector import get_koncerti
+from db_connector import get_koncerti, get_koncert
 
 
 user = Blueprint("user", __name__)
@@ -22,3 +22,15 @@ def svi_koncerti():
             return make_response(render_template("user-svi-koncerti.html", data=response["data"]), 200)
         else:
             return make_response(jsonify(response), 400)
+
+
+# dohvacanje koncerta
+
+
+@user.route("/user/podaci-o-koncertu/<int:id>", methods=['GET'])
+def podaci_koncert(id):
+    response = get_koncert(id)
+    if response["response"] == "Uspjesno dohvacanje!":
+        return make_response(render_template("user-koncert.html", data=response["data"]), 200)
+    else:
+        return make_response(jsonify(response), 400)
