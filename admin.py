@@ -83,4 +83,8 @@ def promjena_podataka(id):
         else:
             return make_response(jsonify(response), 400)
     else:
-        return make_response(render_template("admin-promjena-podataka.html"), 200)
+        response = get_koncerti()
+        if response["response"] == "Uspjesno dohvacanje!":
+            return make_response(render_template("admin-promjena-podataka.html", data=response["data"]), 200)
+        else:
+            return make_response(jsonify(response), 400)
