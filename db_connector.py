@@ -70,7 +70,7 @@ def get_koncerti():
         return {"response": "Neuspjesno izlistavanje!", "error": str(e)}
 
 
-# !dohvacanje koncerta
+# dohvacanje koncerta
 
 
 def get_koncert(odabrani_koncert):
@@ -106,8 +106,8 @@ def patch_koncert(odabrani_koncert, json_request):
         with orm.db_session:
             to_update = Koncert.get(id=odabrani_koncert)
             to_update.ime_izvodaca = json_request["ime_izvodaca"]
-            to_update.opis = json_request["opis"]
-            to_update.slika = json_request["slika"]
+            to_update.opis = json_request["opis"] if json_request["opis"] != None else ""
+            to_update.slika = json_request["slika"] if json_request["slika"] != None else default_img
             to_update.mjesto = json_request["mjesto"]
             to_update.datum = json_request["datum"]
             to_update.vrijeme = json_request["vrijeme"]
