@@ -116,3 +116,24 @@ def patch_koncert(odabrani_koncert, json_request):
             return response
     except Exception as e:
         return {"response": "Neuspjesna promjena!", "error": str(e)}
+
+
+# pretrazivanje koncerata
+
+
+def search_koncerti(json_request):
+    try:
+        with orm.db_session:
+            result = list(orm.select(
+                # x for x in Koncert if str(getattr(x, "ime_izvodaca")) == json_request["item"]))
+                x for x in Koncert if True))[0]
+
+            # result_json = [item.to_dict() for item in result]
+            result_json = result.to_dict()
+            response = {"response": "Uspjesno dohvacanje!",
+                        "data": result_json}
+            return response
+    except Exception as e:
+        return {"response": "Neuspjesno dohvacanje!", "error": str(e)}
+
+# ne radi - ne šalje podatke 05.09. idalje ne radi
