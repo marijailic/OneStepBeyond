@@ -1,0 +1,31 @@
+{% extends "user-base.html" %}
+{% block head %}
+{{ super() }}
+<title>Pregled svih koncerata | OSB</title>
+{% endblock %}
+
+{% block body %}
+<div id="intro-example-page" class="text-center bg-image">
+    <div class="mask-page" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Pregled svih koncerata</h1>
+                <h5 class="mb-4">Koji je tvoj sljedeći koncert?</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <form method="post">
+        <label for="item" class="form-label">Koji te izvođač zanima?</label>
+        <div class="d-flex">
+            <input type="text" name="item" class="form-control" id="item" aria-describedby="item" required
+                value="{{request.form['item']}}">
+            <input type="submit" class="btn btn-outline-dark btn-lg" value="Pretraži">
+        </div>
+    </form>
+
+</div>
+{% endblock %}
