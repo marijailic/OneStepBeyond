@@ -33,8 +33,8 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Opis koncerta</label>
-                <textarea name="opis" class="form-control" id="exampleFormControlTextarea1"
-                    value="{{request.form['opis']}}" rows="3"></textarea>
+                <textarea name="opis" class="form-control" id="exampleFormControlTextarea1" value="{{ data[0].opis }}"
+                    rows="3"></textarea>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">URL slike</label>
-                <input name="slika" value="{{request.form['slika']}}" type="text" class="form-control"
+                <input name="slika" value="{{ data[0].slika }}" type="text" class="form-control"
                     placeholder="https://...">
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Datum</label>
-                <input name="datum" value="{{request.form['datum']}}" type="date" id="example" class="form-control">
+                <input name="datum" value="{{ data[0].datum }}" type="date" id="example" class="form-control">
             </div>
         </div>
 
@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Vrijeme</label>
-                <input name="vrijeme" value="{{request.form['vrijeme']}}" type="time" class="form-control">
+                <input name="vrijeme" value="{{ data[0].vrijeme }}" type="time" class="form-control">
             </div>
         </div>
 
@@ -76,8 +76,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Cijena</label>
-                <input name="cijena" value="{{request.form['cijena']}}" type="text" class="form-control"
-                    placeholder="150.00">
+                <input name="cijena" value="{{ data[0].cijena }}" type="text" class="form-control" placeholder="150.00">
             </div>
         </div>
 
