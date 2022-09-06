@@ -55,4 +55,8 @@
     outline: 0 none;
 }
 
-/*user-svi-koncerti*/
+/*user-koncert*/
+
+#main {
+    margin-top: 40px;
+}
