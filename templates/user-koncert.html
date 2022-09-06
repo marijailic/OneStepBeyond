@@ -11,7 +11,7 @@
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white">
                 <h1 class="mb-3">{{data.ime_izvodaca}}</h1>
-                <h5 class="mb-4">{{data.mjesto}}</h5>
+                <h5 class="mb-4">{{data.naziv_koncerta}}</h5>
             </div>
         </div>
     </div>
@@ -27,12 +27,14 @@
         </div>
         <div class="col-5" id="main">
             <h2>{{data.ime_izvodaca}}</h2>
+            <h4>{{data.naziv_koncerta}}</h4>
             <p>{{data.opis}}</p>
         </div>
         <div class="col">
             <p><b>{{data.mjesto}}</b></p>
             <p><b>{{data.datum}}</b></p>
             <p>{{data.vrijeme}} h</p>
+            <p>{{"Koncert rasprodan!" if data.kolicina_karata == 0 else data.kolicina_karata}}</p>
             <p>{{data.cijena}} kn</p>
             <a href="/user/potvrda/{{data.id}}" class="btn btn-outline-dark btn-lg m-2"> Kupi kartu </a>
         </div>

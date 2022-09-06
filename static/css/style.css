@@ -65,5 +65,11 @@
 
 #container-search-page {
     padding-top: 5vw;
-    padding-bottom: 5vw;
+}
+
+/*admin-svi-koncerti*/
+
+#row-for-each {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
 }

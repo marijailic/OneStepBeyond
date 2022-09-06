@@ -18,16 +18,16 @@ app.register_blueprint(user)
 def naslovnica():
     if request.args:
         response = get_koncerti(request.args)
-        if response["response"] == "Uspjesno dohvacanje!":
-            return make_response(jsonify(response), 200)
+        if response["response"] == "Uspješno dohvaćanje!":
+            return make_response(render_template("success.html", data=response["response"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
     else:
         response = get_koncerti()
-        if response["response"] == "Uspjesno dohvacanje!":
+        if response["response"] == "Uspješno dohvaćanje!":
             return make_response(render_template("index.html", data=response["data"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
 
 
 @app.route("/")

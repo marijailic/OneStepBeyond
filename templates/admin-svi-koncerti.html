@@ -17,33 +17,35 @@
 </div>
 
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% block content %}
-        {% for d in data[::-1] %}
 
-        <div class="col">
-            <div id="konc" class="card h-auto">
-                <img src="{{d.slika}}" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">{{d.ime_izvodaca}}</h5>
-                    <p class="card-text">{{d.opis}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{d.mjesto}}</li>
-                    <li class="list-group-item">{{d.datum}}</li>
-                    <li class="list-group-item">{{d.vrijeme}} h </li>
-                    <li class="list-group-item">{{d.cijena}} kn </li>
-                </ul>
-                <div class="card-body">
-                    <a href="/admin/promjena-podataka/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Uredi </a>
-                    <a href="/admin/brisanje-koncerta/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Ukloni </a>
-                    </form>
-                </div>
-            </div>
+    {% block content %}
+    {% for d in data[::-1] %}
+
+
+    <div class="row" id="row-for-each">
+        <div class="col text-center">
+            <img src="{{d.slika}}" class="img-thumbnail">
         </div>
-
-        {% endfor %}
-        {% endblock %}
+        <div class="col-5" id="main">
+            <h2>{{d.ime_izvodaca}}</h2>
+            <h4>{{d.naziv_koncerta}}</h4>
+            <p>{{d.opis}}</p>
+        </div>
+        <div class="col">
+            <p><b>{{d.mjesto}}</b></p>
+            <p><b>{{d.datum}}</b></p>
+            <p>{{d.vrijeme}} h</p>
+            <p>{{d.kolicina_karata}}</p>
+            <p>{{d.cijena}} kn</p>
+            <p>{{d.kreirano}}</p>
+            <a href="/admin/promjena-podataka/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Uredi </a>
+            <a href="/admin/brisanje-koncerta/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Ukloni </a>
+        </div>
     </div>
+
+
+    {% endfor %}
+    {% endblock %}
+
 </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "user-base.html" %}
 {% block head %}
 {{ super() }}
-<title>Pregled svih koncerata | OSB</title>
+<title>Pretraga koncerata | OSB</title>
 {% endblock %}
 
 {% block body %}
@@ -9,7 +9,7 @@
     <div class="mask-page" style="background-color: rgba(0, 0, 0, 0.7);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white">
-                <h1 class="mb-3">Pregled svih koncerata</h1>
+                <h1 class="mb-3">Pretraga koncerata</h1>
                 <h5 class="mb-4">Koji je tvoj sljedeći koncert?</h5>
             </div>
         </div>
@@ -19,7 +19,7 @@
 <div class="container">
 
     <form method="post">
-        <label for="item" class="form-label">Koji te izvođač zanima?</label>
+        <label for="item" class="form-label">Upiši naziv svog omiljenog izvođača</label>
         <div class="d-flex">
             <input type="text" name="item" class="form-control" id="item" aria-describedby="item" required
                 value="{{request.form['item']}}">
@@ -36,8 +36,10 @@
                 <img src="{{d.slika}}" class="card-img-top">
                 <div class="card-body">
                     <h4 class="card-title">{{d.ime_izvodaca}}</h4>
+                    <h6 class="card-title">{{d.naziv_koncerta}}</h6>
                     <p class="card-text"><b>{{d.mjesto}}</b></p>
                     <p class="card-text">{{d.datum}} | {{d.vrijeme}} h</p>
+                    <p class="card-text">{{d.kolicina_karata}}</p>
                     <p class="card-text">{{d.cijena}} kn</p>
                 </div>
                 <div class="card-body">

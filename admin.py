@@ -1,5 +1,5 @@
 from flask import request, make_response, jsonify, render_template, Blueprint
-from db_connector import add_koncert, get_koncerti, delete_koncert, patch_koncert
+from db_connector import add_koncert, get_koncerti, delete_koncert, patch_koncert, get_koncert
 
 
 admin = Blueprint("admin", __name__)
@@ -20,12 +20,12 @@ def dodavanje_koncerata():
                     json_request[key] = value
         except Exception as e:
             response = {"response": str(e)}
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
         response = add_koncert(json_request)
-        if response["response"] == "Uspjesan unos koncerta!":
-            return make_response(jsonify(response), 200)
+        if response["response"] == "Uspješan unos koncerta!":
+            return make_response(render_template("success.html", data=response["response"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
     else:
         return make_response(render_template("admin-dodavanje-koncerata.html"), 200)
 
@@ -37,16 +37,16 @@ def dodavanje_koncerata():
 def svi_koncerti():
     if request.args:
         response = get_koncerti(request.args)
-        if response["response"] == "Uspjesno dohvacanje!":
-            return make_response(jsonify(response), 200)
+        if response["response"] == "Uspješno dohvaćanje!":
+            return make_response(render_template("success.html", data=response["response"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
     else:
         response = get_koncerti()
-        if response["response"] == "Uspjesno dohvacanje!":
+        if response["response"] == "Uspješno dohvaćanje!":
             return make_response(render_template("admin-svi-koncerti.html", data=response["data"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
 
 
 # brisanje koncerata
@@ -55,10 +55,10 @@ def svi_koncerti():
 @admin.route('/admin/brisanje-koncerta/<id>', methods=['POST', 'GET'])
 def brisanje_koncerta(id):
     response = delete_koncert(id)
-    if response["response"] == "Uspjesno izbrisan koncert!":
-        return make_response(jsonify(response), 200)
+    if response["response"] == "Uspješno izbrisan koncert!":
+        return make_response(render_template("success.html", data=response["response"]), 200)
     else:
-        return make_response(jsonify(response), 400)
+        return make_response(render_template("error.html", data=response["response"]), 400)
 
 
 # promjena podataka koncerta
@@ -76,15 +76,15 @@ def promjena_podataka(id):
                     json_request[key] = value
         except Exception as e:
             response = {"response": str(e)}
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
         response = patch_koncert(id, json_request)
-        if response["response"] == "Uspjesna promjena!":
-            return make_response(jsonify(response), 200)
+        if response["response"] == "Uspješna promjena!":
+            return make_response(render_template("success.html", data=response["response"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)
     else:
-        response = get_koncerti()
-        if response["response"] == "Uspjesno dohvacanje!":
+        response = get_koncert(id)
+        if response["response"] == "Uspješno dohvaćanje!":
             return make_response(render_template("admin-promjena-podataka.html", data=response["data"]), 200)
         else:
-            return make_response(jsonify(response), 400)
+            return make_response(render_template("error.html", data=response["response"]), 400)

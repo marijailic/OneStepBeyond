@@ -25,7 +25,15 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Naziv izvođača</label>
-                <input name="ime_izvodaca" value="{{ data[0].ime_izvodaca }}" type="text" class="form-control">
+                <input name="ime_izvodaca" value="{{ data.ime_izvodaca }}" type="text" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <label for="exampleFormControlTextarea1" class="form-label">Naziv koncerta</label>
+                <input name="naziv_koncerta" value="{{ data.naziv_koncerta }}" type="text" class="form-control">
             </div>
         </div>
 
@@ -33,8 +41,8 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Opis koncerta</label>
-                <textarea name="opis" class="form-control" id="exampleFormControlTextarea1" value="{{ data[0].opis }}"
-                    rows="3"></textarea>
+                <textarea name="opis" class="form-control" id="exampleFormControlTextarea1"
+                    rows="3">{{ data.opis }}</textarea>
             </div>
         </div>
 
@@ -42,8 +50,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">URL slike</label>
-                <input name="slika" value="{{ data[0].slika }}" type="text" class="form-control"
-                    placeholder="https://...">
+                <input name="slika" value="{{ data.slika }}" type="text" class="form-control" placeholder="https://...">
             </div>
         </div>
 
@@ -51,7 +58,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Mjesto </label>
-                <input name="mjesto" value="{{ data[0].mjesto }}" type="text" class="form-control" id="inputAddress"
+                <input name="mjesto" value="{{ data.mjesto }}" type="text" class="form-control" id="inputAddress"
                     placeholder="Arena, 52 100 Pula">
             </div>
         </div>
@@ -60,7 +67,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Datum</label>
-                <input name="datum" value="{{ data[0].datum }}" type="date" id="example" class="form-control">
+                <input name="datum" value="{{ data.datum }}" type="date" id="example" class="form-control">
             </div>
         </div>
 
@@ -68,7 +75,16 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Vrijeme</label>
-                <input name="vrijeme" value="{{ data[0].vrijeme }}" type="time" class="form-control">
+                <input name="vrijeme" value="{{ data.vrijeme }}" type="time" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <label for="exampleFormControlTextarea1" class="form-label">Količina karata</label>
+                <input name="kolicina_karata" value="{{ data.kolicina_karata }}" type="text" class="form-control"
+                    placeholder="50">
             </div>
         </div>
 
@@ -76,7 +92,7 @@
         <div class="row">
             <div class="col">
                 <label for="exampleFormControlTextarea1" class="form-label">Cijena</label>
-                <input name="cijena" value="{{ data[0].cijena }}" type="text" class="form-control" placeholder="150.00">
+                <input name="cijena" value="{{ data.cijena }}" type="text" class="form-control" placeholder="150.00">
             </div>
         </div>
 
