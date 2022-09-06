@@ -1,7 +1,7 @@
 {% extends "user-base.html" %}
 {% block head %}
 {{ super() }}
-<title>Koncert | OSB</title>
+<title>{{data.ime_izvodaca}} | OSB</title>
 {% endblock %}
 
 {% block body %}
@@ -10,8 +10,8 @@
     <div class="mask-page" style="background-color: rgba(0, 0, 0, 0.7);">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white">
-                <h1 class="mb-3">Nekaj</h1>
-                <h5 class="mb-4">Nekaj</h5>
+                <h1 class="mb-3">{{data.ime_izvodaca}}</h1>
+                <h5 class="mb-4">{{data.mjesto}}</h5>
             </div>
         </div>
     </div>
@@ -20,15 +20,22 @@
 <div class="container">
 
     {% block content %}
-    <div class="clearfix">
-        <img src="{{data.slika}}" class="col-md-6 float-md-end mb-3 ms-md-3">
 
-        <h3>{{data.ime_izvodaca}}</h3>
-        <p>{{data.mjesto}}</p>
-        <p>{{data.datum}} | {{data.vrijeme}} h</p>
-        <p>{{data.cijena}} kn</p>
-        <p>{{data.opis}}</p>
-        <a href="/user/potvrda/{{data.id}}" class="btn btn-outline-dark btn-lg m-2"> Kupi kartu </a>
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{data.slika}}" class="img-thumbnail">
+        </div>
+        <div class="col-5" id="main">
+            <h2>{{data.ime_izvodaca}}</h2>
+            <p>{{data.opis}}</p>
+        </div>
+        <div class="col">
+            <p><b>{{data.mjesto}}</b></p>
+            <p><b>{{data.datum}}</b></p>
+            <p>{{data.vrijeme}} h</p>
+            <p>{{data.cijena}} kn</p>
+            <a href="/user/potvrda/{{data.id}}" class="btn btn-outline-dark btn-lg m-2"> Kupi kartu </a>
+        </div>
     </div>
 
     {% endblock %}
