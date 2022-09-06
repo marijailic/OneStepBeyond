@@ -60,3 +60,10 @@
 #main {
     margin-top: 40px;
 }
+
+/*user-pretraga*/
+
+#container-search-page {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
