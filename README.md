@@ -25,11 +25,11 @@ Projekt iz kolegija **Poslovni informacijski sustavi**
 *Napomena:*
 *Kako bi web aplikacija omogućila slanje e-mail potvrde o kupljenoj karti za koncert potrebno je kreirati .env file sa sljedećim podacima:*
 1. SENDGRID_API_KEY
-Upute o kreiranju API ključa možete pronaći [ovdje](https://www.youtube.com/watch?v=DA2ubUEV1uQ&ab_channel=StudyGyaan).
+- Upute o kreiranju API ključa možete pronaći [ovdje](https://www.youtube.com/watch?v=DA2ubUEV1uQ&ab_channel=StudyGyaan).
 3. FROM_EMAIL
-E-mail adresa koju želite koristiti kao adresu pošiljatelja.
+- E-mail adresa koju želite koristiti kao adresu pošiljatelja.
 5. TO_EMAIL
-E-mail adresa koju želite koristiti kao adresu primatelja.
+- E-mail adresa koju želite koristiti kao adresu primatelja.
 
 ---
 
