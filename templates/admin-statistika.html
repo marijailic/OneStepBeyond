@@ -1,0 +1,74 @@
+{% extends "admin-base.html" %}
+{% block head %}
+{{ super() }}
+<title>Statistika | OSB</title>
+{% endblock %}
+
+{% block body %}
+<div id="intro-example-page" class="text-center bg-image">
+    <div class="mask-page" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Statistika</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Prosječna cijena karte po gradovima</h2>
+    <canvas id="moj_graf" width="200" height="50" class="graf"></canvas>
+    <h2>Broj koncerata po mjesecima</h2>
+    <canvas id="moj_graf2" width="200" height="50"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let ctx, data, config, chart;
+    </script>
+    <script>
+        const gradovi = JSON.parse("{{x|safe}}".replaceAll("\'", "\""));
+        const cijene = JSON.parse("{{y|safe}}");
+
+        ctx = document.getElementById("moj_graf");
+
+        data = {
+            labels: gradovi,
+            datasets: [{
+                label: "Prosječna cijena karte po gradovima",
+                backgroundColor: "#D17A22",
+                data: cijene
+            }]
+        };
+
+        config = {
+            type: "bar",
+            data: data
+        };
+        chart = new Chart(ctx, config);
+    </script>
+
+    <script>
+        const mjeseci = JSON.parse("{{x2|safe}}".replaceAll("\'", "\""));
+        const kolicine = JSON.parse("{{y2|safe}}");
+
+        ctx = document.getElementById("moj_graf2");
+
+        data = {
+            labels: mjeseci,
+            datasets: [{
+                label: "Broj koncerata po mjesecima",
+                backgroundColor: "#D17A22",
+                data: kolicine
+            }]
+        };
+
+        config = {
+            type: "line",
+            data: data
+        };
+        chart = new Chart(ctx, config);
+    </script>
+
+
+</div>
+{% endblock %}

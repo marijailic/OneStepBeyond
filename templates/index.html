@@ -13,7 +13,7 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>One Step Beyond | Web servis na kojem je sve moguće</title>
+    <title>One Step Beyond | Web aplikacija na kojoj je sve moguće</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
                     <h1 class="mb-3">One Step Beyond</h1>
-                    <h5 class="mb-4">Web servis na kojem je sve moguće</h5>
+                    <h5 class="mb-4">Web aplikacija na kojoj je sve moguće</h5>
                     <a class="btn btn-outline-light btn-lg m-2" href="/admin/svi-koncerti" role="button"
                         rel="nofollow">Administrator</a>
                     <a class="btn btn-outline-light btn-lg m-2" href="/user/svi-koncerti" role="button">Korisnik</a>
@@ -42,8 +42,8 @@
                     <img src="{{d.slika}}" class="card-img-top">
                     <div class="card-body">
                         <h4 class="card-title">{{d.ime_izvodaca}}</h4>
-                        <h6 class="card-title">{{d.naziv_koncerta}}</h6>
-                        <p class="card-text"><b>{{d.mjesto}}</b></p>
+                        <p class="card-text"><b>Naziv koncerta:</b> {{d.naziv_koncerta}}</p>
+                        <p class="card-text"><b>Mjesto:</b> {{d.mjesto}}</p>
                         <p class="card-text">{{d.datum}} | {{d.vrijeme}} h</p>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ def send_email(data):
     message = Mail(
         from_email=os.environ.get('FROM_EMAIL'),
         to_emails=os.environ.get('TO_EMAIL'),
-        subject='Sending with Twilio SendGrid is Fun',
+        subject='Potvrda o uspješno kupljenoj karti | One Step Beyond (OSB)',
         html_content=get_template(data)
     )
     try:

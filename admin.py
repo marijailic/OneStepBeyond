@@ -1,3 +1,4 @@
+from sys import base_prefix
 from flask import request, make_response, jsonify, render_template, Blueprint
 from db_connector import add_koncert, get_koncerti, delete_koncert, patch_koncert, get_koncert
 
@@ -88,3 +89,31 @@ def promjena_podataka(id):
             return make_response(render_template("admin-promjena-podataka.html", data=response["data"]), 200)
         else:
             return make_response(render_template("error.html", data=response["response"]), 400)
+
+
+# statistika
+
+
+@admin.route('/admin/statistika', methods=['GET'])
+def podaci_graf():
+    response = get_koncerti()
+    data = response["data"]
+    suma_pula, b_p, suma_zagreb, b_z = 0, 0, 0, 0
+    for d in data:
+        if d["mjesto"] == "Arena, 52 100 Pula":
+            suma_pula += d["cijena"]
+            b_p += 1
+        else:
+            suma_zagreb += d["cijena"]
+            b_z += 1
+    cijene = [suma_pula/b_p, suma_zagreb/b_z]
+    gradovi = ["Pula", "Zagreb"]
+    mjeseci = ["Siječanj", "Veljača", "Ožujak", "Travanj", "Svibanj", "Lipanj",
+               "Srpanj", "Kolovoz", "Rujan", "Listopad", "Studeni", "Prosinac"]
+    kolicine = [0] * len(mjeseci)
+    for d in data:
+        kolicine[d["datum"].month - 1] += 1
+    if response["response"] == "Uspješno dohvaćanje!":
+        return make_response(render_template("admin-statistika.html", x=gradovi, y=cijene, x2=mjeseci, y2=kolicine), 200)
+    else:
+        return make_response(render_template("error.html", data=response["response"]), 400)

@@ -18,7 +18,7 @@ Projekt iz kolegija **Poslovni informacijski sustavi**
 * Brisanje koncerata *(delete)*
 
 **Specifične funkcionalnosti:**
-* *Prikaz statistika o koncertima*
+* Prikaz statistika o koncertima
 * Pretraživanje koncerata pomoću naziva izvođača
 * Slanje e-mail potvrde za svaku kupljenu kartu za koncert
 

@@ -53,7 +53,7 @@ def slanje_potvrde(id):
         data["kolicina_karata"] -= 1
         patch_koncert(id, data)
         response = {
-            "response": "Uspješna kupnja ulaznice, potvrda poslana na mail!"}
+            "response": "Uspješna kupnja karte, potvrda poslana na mail!"}
         return make_response(render_template("success.html", data=response["response"]), 200)
     else:
         response = {"response": "Neuspješna kupnja ulaznice!"}

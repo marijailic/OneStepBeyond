@@ -28,16 +28,16 @@
         </div>
         <div class="col-5" id="main">
             <h2>{{d.ime_izvodaca}}</h2>
-            <h4>{{d.naziv_koncerta}}</h4>
+            <p><b>Naziv koncerta:</b> {{d.naziv_koncerta}}</p>
             <p>{{d.opis}}</p>
         </div>
         <div class="col">
-            <p><b>{{d.mjesto}}</b></p>
-            <p><b>{{d.datum}}</b></p>
-            <p>{{d.vrijeme}} h</p>
-            <p>{{d.kolicina_karata}}</p>
-            <p>{{d.cijena}} kn</p>
-            <p>{{d.kreirano}}</p>
+            <p><b>Mjesto:</b> {{d.mjesto}}</p>
+            <p><b>Datum:</b> {{d.datum}}</p>
+            <p><b>Vrijeme:</b> {{d.vrijeme}} h</p>
+            <p><b>Količina karata:</b> {{"Koncert rasprodan!" if d.kolicina_karata == 0 else d.kolicina_karata}}</p>
+            <p><b>Cijena karte:</b> {{d.cijena}} kn</p>
+            <p><b>Kreirano:</b> {{d.kreirano}}</p>
             <a href="/admin/promjena-podataka/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Uredi </a>
             <a href="/admin/brisanje-koncerta/{{d.id}}" class="btn btn-outline-dark btn-lg m-2"> Ukloni </a>
         </div>
