@@ -47,12 +47,12 @@ Pomoću **API user** moguće je pregledati sve koncerte, pretraživati koncerte,
 
 **TO DO LISTA:**
 
-- [ ] Preuzeti sve datoteke iz repozitorija i raspakirati ih u posebnu mapu.
-- [ ] Dodati u mapu *.env* file prema ranijoj uputi.
-- [ ] Putem terminala navigirati u kreiranu mapu.
-- [ ] Izraditi docker image pomoću sljedeće naredbe:
+- Preuzeti sve datoteke iz repozitorija i raspakirati ih u posebnu mapu.
+- Dodati u mapu *.env* file prema ranijoj uputi.
+- Putem terminala navigirati u kreiranu mapu.
+- Izraditi docker image pomoću sljedeće naredbe:
 `docker build --tag app-pis:1.0 .`
-- [ ] Pokrenuti konteiner na temelju image-a pomoću sljedeće naredbe:
+- Pokrenuti konteiner na temelju image-a pomoću sljedeće naredbe:
 `docker run -p 8080:8080 -d app-pis:1.0`
-- [ ] U preglediku pristupiti aplikaciji pomoću sljedeće adrese:
+- U preglediku pristupiti aplikaciji pomoću sljedeće adrese:
 `localhost:8080`
